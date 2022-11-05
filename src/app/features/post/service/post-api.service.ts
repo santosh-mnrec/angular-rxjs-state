@@ -22,6 +22,6 @@ export class PostApiService {
     return this.http.delete(`${this.baseUrl}/posts/${todoId}`);
   }
   loadPostWithComments(id) {
-    return this.http.get(`${this.baseUrl}/posts/comments/${id}`);
+    return this.http.get<Comment>(`${this.baseUrl}/posts/comments/${id}`);
   }
 }
