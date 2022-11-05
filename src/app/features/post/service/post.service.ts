@@ -21,11 +21,13 @@ export class PostService {
     }
   );
   initialize() {
-    this.commentSource$ = this.postApiService.loadPostWithComments(1);
     this.postApiService.loadAll().subscribe((data) => {
       this.posts = data;
+      console.log(data);
       this.postsSubject.next([...this.posts]);
     });
+
+    this.commentSource$ = this.postApiService.loadPostWithComments(1);
   }
 
   addTodo(post: Post) {
