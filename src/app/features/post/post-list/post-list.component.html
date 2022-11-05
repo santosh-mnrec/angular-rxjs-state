@@ -1,0 +1,17 @@
+<div class="row">
+  <form [formGroup]="postForm" (submit)="onSubmit()">
+    <button class="btn btn-success">Add Item</button><br />
+  </form>
+
+  <div class="col-md-8">
+    <ul class="list-group" *ngFor="let post of posts$ | async">
+      <li class="list-group-item" (click)="details(post.id)">
+        <p>{{ post.title }}</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-4">
+    <app-post [post]="singlePost"></app-post>
+  </div>
+</div>
