@@ -15,10 +15,13 @@ export class PostApiService {
   }
 
   create(todo: Post) {
-    return this.http.post(`${this.baseUrl}/todos`, JSON.stringify(todo));
+    return this.http.post(`${this.baseUrl}/posts`, JSON.stringify(todo));
   }
 
   delete(todoId: number) {
-    return this.http.delete(`${this.baseUrl}/todos/${todoId}`);
+    return this.http.delete(`${this.baseUrl}/posts/${todoId}`);
+  }
+  loadPostWithComments(id) {
+    return this.http.get(`${this.baseUrl}/posts/comments/${id}`);
   }
 }
